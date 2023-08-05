@@ -1,19 +1,15 @@
 {
   "name": "vue-demi-sfc-component-template",
+  "packageManager": "pnpm@8.6.11",
   "version": "0.0.4",
   "description": "template component for vue-demi, can dev and build",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "./types/index.d.ts",
-  "style": "dist/style.css",
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
       "require": "./dist/index.cjs.js"
-    },
-    "./dist/style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
     }
   },
   "files": [
@@ -22,18 +18,18 @@
     "types"
   ],
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build": "npm run clean && run-s build:*",
     "build:2": "vue-demi-switch 2 vue2 && pnpm --filter vue2-playground build",
-    "build:2.7": "vue-demi-switch 2.7 vue2 && pnpm --filter vue2.7-playground build",
+    "build:2.7": "vue-demi-switch 2.7 vue2.7 && pnpm --filter vue2.7-playground build",
     "build:3": "vue-demi-switch 3 vue3 && pnpm --filter vue3-playground build",
-    "clean": "rimraf ./dist",
+    "clean": "rimraf dist",
     "dev:2": "vue-demi-switch 2 vue2 && pnpm --filter vue2-playground dev",
-    "dev:2.7": "vue-demi-switch 2.7 vue2 && pnpm --filter vue2.7-playground dev",
+    "dev:2.7": "vue-demi-switch 2.7 vue2.7 && pnpm --filter vue2.7-playground dev",
     "dev:3": "vue-demi-switch 3 vue3 && pnpm --filter vue3-playground dev",
-    "lint:fix": "eslint . --ext .vue,.js,.jsx,.ts,.tsx --fix --ignore-path .gitignore",
     "postinstall": "node scripts/postinstall.js",
     "prepublishOnly": "npm run build",
-    "release": "bumpp --commit --push --tag && npm publish"
+    "release": "npx bumpp --commit --push --tag && npm publish"
   },
   "author": "Shimada666<649940882@qq.com>",
   "license": "MIT",
@@ -42,7 +38,7 @@
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.4.9",
-    "vue": "^2.6.0 || >=3.0.0"
+    "vue": "^3.0.0-0 || ^2.6.0"
   },
   "peerDependenciesMeta": {
     "@vue/composition-api": {
@@ -53,17 +49,17 @@
     "vue-demi": "^0.14.5"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.34.0",
-    "@types/node": "^18.11.18",
-    "bumpp": "^8.2.1",
-    "eslint": "^8.31.0",
+    "@types/node": "^20.4.7",
+    "bumpp": "^9.1.1",
     "npm-run-all": "^4.1.5",
-    "rimraf": "^3.0.2",
-    "sass": "^1.57.1",
-    "typescript": "~4.7.4",
-    "vite": "^4.3.9",
-    "vue-tsc": "^0.40.13",
-    "vue2": "npm:vue@2",
-    "vue3": "npm:vue@3"
+    "rimraf": "^5.0.1",
+    "typescript": "~5.1.6",
+    "unplugin-vue2-script-setup": "^0.11.3",
+    "vite": "^4.4.8",
+    "vite-plugin-dts": "^3.5.0",
+    "vue-tsc": "^1.8.8",
+    "vue2": "npm:vue@~2.6.14",
+    "vue2.7": "npm:vue@~2.7.14",
+    "vue3": "npm:vue@^3.3.4"
   }
 }

@@ -1,10 +1,11 @@
 <script lang="ts" setup>
-import { isVue2, isVue3, ref } from 'vue-demi'
+import { isVue2, isVue3, ref } from 'vue-demi';
+import TemplateComponent from '../src/index';
 
-const versionStr = isVue2 ? 'Vue2' : 'Vue3'
-const Vue2Version = ref(versionStr)
+const versionStr = isVue2 ? 'Vue2' : 'Vue3';
+const Vue2Version = ref(versionStr);
 
-console.warn(`Vue env: Vue3:${isVue3} -- Vue2: ${isVue2}`)
+console.warn(`Vue env: Vue3:${isVue3} -- Vue2: ${isVue2}`);
 </script>
 
 <template>

@@ -1,33 +1,26 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "types": ["vite/client" /* , "unplugin-vue2-script-setup/types" */],
+    "target": "ESNext",
     "useDefineForClassFields": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    "lib": ["ES2020", "DOM", "DOM.Iterable"]
   },
-  "include": [    
-    "src/**/*.vue",
+  "include": [
     "src/**/*.ts",
-    "env.d.ts",
-    "playground/**/*.vue",
-    "playground/**/*.ts",
-    "vite.config.ts",
-    "types/*.d.ts"
+    "**/*.vue",
+    "*.d.ts"
+    // "env.d.ts",
+    // "playground/**/*.vue",
+    // "playground/**/*.ts",
+    // "vite.config.ts",
   ],
-    "exclude": [
-      "node_modules",
-      "dist"
-    ],
+  // "exclude": ["node_modules", "dist"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

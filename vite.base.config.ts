@@ -1,11 +1,9 @@
-import * as path from 'path'
-import { defineConfig } from 'vite'
-import { isVue2 } from 'vue-demi'
+import * as path from 'path';
+import { defineConfig, PluginOption } from 'vite';
+import { isVue2 } from 'vue-demi';
 
-const outputName = 'index'
-export const defaultPlugins = [
-
-]
+const outputName = 'index';
+export const defaultPlugins: PluginOption[] = [];
 
 // https://vitejs.dev/config/
 export const baseBuildConfig = defineConfig({
@@ -16,7 +14,7 @@ export const baseBuildConfig = defineConfig({
       entry: path.resolve(__dirname, 'src/index.ts'),
       formats: ['es', 'cjs', 'umd'],
       name: 'index',
-      fileName: format => `${outputName}.${format}.js`,
+      fileName: (format) => `${outputName}.${format}.js`,
     },
     rollupOptions: {
       external: ['vue', '@vue/composition-api/dist/vue-composition-api.mjs'],
@@ -31,6 +29,6 @@ export const baseBuildConfig = defineConfig({
     },
   },
   optimizeDeps: {
-    exclude: ['vue-demi', 'vue', 'vue2'],
+    exclude: ['vue-demi', 'vue'],
   },
-})
+});
